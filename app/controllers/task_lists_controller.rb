@@ -45,7 +45,7 @@ class TaskListsController < ApiController
     respond_to do |format|
       if @task_list.update(task_list_params)
         format.html { redirect_to @task_list, notice: 'Task list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task_list }
+        format.json { render :show, status: :ok}
       else
         format.html { render :edit }
         format.json { render json: @task_list.errors, status: :unprocessable_entity }
