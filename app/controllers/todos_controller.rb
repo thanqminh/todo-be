@@ -4,7 +4,7 @@ class TodosController < ApiController
 
   def check_permission
     @list =TaskList.find(params[:task_list_id])
-    head :not_found if (list.blank? || list.user_id != current_user.id)
+    head :not_found if (@list.blank? || @list.user_id != current_user.id)
   end
 
   # GET /todos
