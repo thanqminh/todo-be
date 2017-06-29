@@ -1,0 +1,6 @@
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins '*'
+    resource '*', :headers => :any, :methods => [:get, :post, :put, :patch, :delete, :options, :head], :expose => 'Accept, Accept-Charset, Accept-Encoding, Accept-Language, Access-Control-Allow-Credentials, Access-Control-Allow-Headers, Access-Control-Allow-Methods, Access-Control-Allow-Origin, Access-Control-Expose-Headers, Access-Control-Max-Age, Access-Control-Request-Headers, Access-Control-Request-Method, Cache-Control, Connection, Content-Encoding, Content-Length, Content-Type, Cookie, DNT, Date, Expires, HTTP_CLIENT_IP, HTTP_COMING_FROM, HTTP_VIA, Host, If-Modified-Since, Keep-Alive, Origin, Pragma, REMOTE_ADDR, Referer, Server, Set-Cookie, Srv, Transfer-Encoding, User-Agent, Vary, X-Content-Type-Options, X-CustomHeader, X-DNS-Prefetch-Control, X-Forwarded-For, X-Forwarded-Host, X-Forwarded-Server, X-Frame-Options, X-Modified, X-OTHER, X-Originating-IP, X-Output, X-PING, X-PINGOTHER, X-Powered-By, X-Real-IP, X-Redirect, X-Requested-With, X-Robots-Tag, X-XSS-Protection, X-Xss-Protection, Access-Token, Client, Uid, Expiry, Token-Type'
+  end
+end
