@@ -3,15 +3,14 @@ class TodosController < ApiController
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
 
   def check_permission
-    list =TaskList.find(params[:task_list_id])
+    @list =TaskList.find(params[:task_list_id])
     head :not_found if (list.blank? || list.user_id != current_user.id)
   end
 
   # GET /todos
   # GET /todos.json
   def index
-
-    @todos = list.todos
+    @todos = @list.todos
   end
 
   # GET /todos/1
