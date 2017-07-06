@@ -85,7 +85,7 @@ class TodosController < ApiController
     # Use callbacks to share common setup or constraints between actions.
     def set_todo
       @todo = Todo.find(params[:id])
-      return head :not_authorized if @list.user_id != current_user.id || @share.is_write != true
+      return head :forbidden if @list.user_id != current_user.id && @share.is_write != true
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
