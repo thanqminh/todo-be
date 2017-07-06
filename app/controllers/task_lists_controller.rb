@@ -31,7 +31,7 @@ class TaskListsController < ApiController
     respond_to do |format|
       if @task_list.save
         format.html { redirect_to @task_list, notice: 'Task list was successfully created.' }
-        format.json { render :show, status: :created, location: @task_list }
+        format.json { render :show, status: :created}
       else
         format.html { render :new }
         format.json { render json: @task_list.errors, status: :unprocessable_entity }
