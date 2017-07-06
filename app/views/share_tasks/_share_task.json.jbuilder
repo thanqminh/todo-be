@@ -1,0 +1,1 @@
+json.extract! share_task, :user_id, :task_list_id, :is_write, :created_at, :updated_at

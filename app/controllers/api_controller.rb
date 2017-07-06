@@ -1,8 +1,6 @@
 class ApiController < ActionController::Base
   before_action :set_default_response_format
-
   include DeviseTokenAuth::Concerns::SetUserByToken
-
 
   protected
 

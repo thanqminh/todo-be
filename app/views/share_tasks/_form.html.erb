@@ -1,0 +1,32 @@
+<%= form_with(model: share_task, local: true) do |form| %>
+  <% if share_task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(share_task.errors.count, "error") %> prohibited this share_task from being saved:</h2>
+
+      <ul>
+      <% share_task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :share_task_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :task_list_id %>
+    <%= form.text_field :task_list_id, id: :share_task_task_list_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_write %>
+    <%= form.check_box :is_write, id: :share_task_is_write %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

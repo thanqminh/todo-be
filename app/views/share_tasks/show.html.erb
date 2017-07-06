@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @share_task.user %>
+</p>
+
+<p>
+  <strong>Task list:</strong>
+  <%= @share_task.task_list %>
+</p>
+
+<p>
+  <strong>Is write:</strong>
+  <%= @share_task.is_write %>
+</p>
+
+<%= link_to 'Edit', edit_share_task_path(@share_task) %> |
+<%= link_to 'Back', share_tasks_path %>

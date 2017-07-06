@@ -4,13 +4,27 @@ class TodosController < ApiController
 
   def check_permission
     @list =TaskList.find(params[:task_list_id])
-    head :not_found if (@list.blank? || @list.user_id != current_user.id)
+    @share = ShareTask.new
+    if @list.blank?
+      head :not_found
+    else
+      if @list.user_id != current_user.id
+        @share = ShareTask.find_by_task_list_id_and_user_id(@list.id,current_user.id)
+        head :not_found if @share.blank?
+      end
+    end
   end
 
   # GET /todos
   # GET /todos.json
   def index
     @todos = @list.todos
+  end
+
+  def search
+    return head :bad_request unless params.has_key?(:name) && params[:name].blank?
+    @todos = Todos.where('name LIKE ?', "%#{params[:name]}%")
+    render :index
   end
 
   # GET /todos/1
@@ -49,7 +63,7 @@ class TodosController < ApiController
     respond_to do |format|
       if @todo.update(todo_params)
         format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @todo }
+        format.json { render :show, status: :ok}
       else
         format.html { render :edit }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
@@ -71,6 +85,7 @@ class TodosController < ApiController
     # Use callbacks to share common setup or constraints between actions.
     def set_todo
       @todo = Todo.find(params[:id])
+      return head :not_authorized if @list.user_id != current_user.id || @share.is_write != true
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
