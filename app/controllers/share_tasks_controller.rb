@@ -11,7 +11,7 @@ class ShareTasksController < ApiController
   # GET /share_tasks
   # GET /share_tasks.json
   def index
-    @share_tasks = ShareTask.all
+    @share_tasks = @list.share_tasks
   end
 
   # GET /share_tasks/1
