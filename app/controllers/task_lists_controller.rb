@@ -8,6 +8,11 @@ class TaskListsController < ApiController
     @task_lists = current_user.task_lists
   end
 
+  def shared
+    @task_lists = current_user.shared_task_lists
+    render :index
+  end
+
   # GET /task_lists/1
   # GET /task_lists/1.json
   def show

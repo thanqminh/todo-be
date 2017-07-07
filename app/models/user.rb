@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
   has_many :task_lists
+  has_many :share_tasks
+  has_many :shared_task_lists, :through => :share_tasks, source: :task_list
 end
