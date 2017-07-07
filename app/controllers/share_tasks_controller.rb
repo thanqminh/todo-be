@@ -71,7 +71,7 @@ class ShareTasksController < ApiController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_share_task
-      @share_task = ShareTask.find_by_task_list_id_and_user_id(params[:task_list_id], current_user.id)
+      @share_task = ShareTask.find_by_task_list_id_and_user_id(params[:task_list_id], params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
