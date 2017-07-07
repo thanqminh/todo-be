@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     put 'share' => 'share_tasks#update'
     delete 'share' => 'share_tasks#delete'
   end
-  get 'shared' => 'task_list#shared'
+  get 'shared' => 'task_lists#shared'
   get 'search/:name' => 'todos#search'
   get 'users' => 'users#index'
   mount_devise_token_auth_for 'User', at: 'auth'
