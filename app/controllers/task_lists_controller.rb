@@ -10,6 +10,14 @@ class TaskListsController < ApiController
 
   def shared
     @task_lists = current_user.shared_task_lists
+    if @task_lists.present?
+      @shared = ShareTask.where(:user_id => current_user.id)
+      @shared.each do |s|
+        @task_lists.each do |tl|
+          tl.is_write = s.is_write if s.task_list_id == tl.id
+        end
+      end
+    end
     render :index
   end
 
