@@ -19,6 +19,7 @@ class TodosController < ApiController
   # GET /todos.json
   def index
     @todos = @list.todos
+    render json: @todos
   end
 
   def search
