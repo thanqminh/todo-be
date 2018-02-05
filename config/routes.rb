@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'application#index'
   resources :task_lists do
     resources :todos
     get 'share' => 'share_tasks#index'

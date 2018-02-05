@@ -1,0 +1,40 @@
+<pre>
+         task_list_todos GET    /task_lists/:task_list_id/todos(.:format)          todos#index
+                         POST   /task_lists/:task_list_id/todos(.:format)          todos#create
+      new_task_list_todo GET    /task_lists/:task_list_id/todos/new(.:format)      todos#new
+     edit_task_list_todo GET    /task_lists/:task_list_id/todos/:id/edit(.:format) todos#edit
+          task_list_todo GET    /task_lists/:task_list_id/todos/:id(.:format)      todos#show
+                         PATCH  /task_lists/:task_list_id/todos/:id(.:format)      todos#update
+                         PUT    /task_lists/:task_list_id/todos/:id(.:format)      todos#update
+                         DELETE /task_lists/:task_list_id/todos/:id(.:format)      todos#destroy
+         task_list_share GET    /task_lists/:task_list_id/share(.:format)          share_tasks#index
+                         POST   /task_lists/:task_list_id/share(.:format)          share_tasks#create
+                         PUT    /task_lists/:task_list_id/share(.:format)          share_tasks#update
+                         DELETE /task_lists/:task_list_id/share/:user_id(.:format) share_tasks#destroy
+              task_lists GET    /task_lists(.:format)                              task_lists#index
+                         POST   /task_lists(.:format)                              task_lists#create
+           new_task_list GET    /task_lists/new(.:format)                          task_lists#new
+          edit_task_list GET    /task_lists/:id/edit(.:format)                     task_lists#edit
+               task_list GET    /task_lists/:id(.:format)                          task_lists#show
+                         PATCH  /task_lists/:id(.:format)                          task_lists#update
+                         PUT    /task_lists/:id(.:format)                          task_lists#update
+                         DELETE /task_lists/:id(.:format)                          task_lists#destroy
+                  shared GET    /shared(.:format)                                  task_lists#shared
+                         GET    /search/:name(.:format)                            todos#search
+                   users GET    /users(.:format)                                   users#index
+        new_user_session GET    /auth/sign_in(.:format)                            devise_token_auth/sessions#new
+            user_session POST   /auth/sign_in(.:format)                            devise_token_auth/sessions#create
+    destroy_user_session DELETE /auth/sign_out(.:format)                           devise_token_auth/sessions#destroy
+       new_user_password GET    /auth/password/new(.:format)                       devise_token_auth/passwords#new
+      edit_user_password GET    /auth/password/edit(.:format)                      devise_token_auth/passwords#edit
+           user_password PATCH  /auth/password(.:format)                           devise_token_auth/passwords#update
+                         PUT    /auth/password(.:format)                           devise_token_auth/passwords#update
+                         POST   /auth/password(.:format)                           devise_token_auth/passwords#create
+cancel_user_registration GET    /auth/cancel(.:format)                             devise_token_auth/registrations#cancel
+   new_user_registration GET    /auth/sign_up(.:format)                            devise_token_auth/registrations#new
+  edit_user_registration GET    /auth/edit(.:format)                               devise_token_auth/registrations#edit
+       user_registration PATCH  /auth(.:format)                                    devise_token_auth/registrations#update
+                         PUT    /auth(.:format)                                    devise_token_auth/registrations#update
+                         DELETE /auth(.:format)                                    devise_token_auth/registrations#destroy
+                         POST   /auth(.:format)                                    devise_token_auth/registrations#create
+     auth_validate_token GET    /auth/validate_token(.:format)                     devise_token_auth/token_validations#validate_token
