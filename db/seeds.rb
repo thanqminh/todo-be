@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(:email => 'thanqminh@gmail.com', :password => 'Abcd1234')
-User.create(:email => 'thanqminh+1@gmail.com', :password => 'Abcd1234')
-User.create(:email => 'thanqminh+2@gmail.com', :password => 'Abcd1234')
+User.create(:email => 'thanqminh@gmail.com', :password => '12345678')
+User.create(:email => 'thanqminh+1@gmail.com', :password => '12345678')
+User.create(:email => 'thanqminh+2@gmail.com', :password => '12345678')
 TaskList.create(:name => 'list 1 of minh1', :user_id => 1)
 TaskList.create(:name => 'list 2 of minh1', :user_id => 1)
 TaskList.create(:name => 'list 3 of minh1', :user_id => 1)

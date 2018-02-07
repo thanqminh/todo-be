@@ -11,6 +11,7 @@ class TodosController < ApiController
       if @list.user_id != current_user.id
         @share = ShareTask.find_by_task_list_id_and_user_id(@list.id,current_user.id)
         head :not_found if @share.blank?
+        head :forbidden unless @share.is_write?
       end
     end
   end
