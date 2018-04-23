@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'shared' => 'task_lists#shared'
   get 'search/:name' => 'todos#search'
   get 'users' => 'users#index'
+  get 'profile' => 'users#profile'
+  match 'auth' => 'users#update', :via => [:patch,:put]
   mount_devise_token_auth_for 'User', at: 'auth'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
